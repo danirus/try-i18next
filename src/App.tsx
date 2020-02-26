@@ -1,19 +1,23 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import logo from './logo.svg';
 import './App.css';
 
 
 function App() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const changeLang = (lang: string) => i18n.changeLanguage(lang);
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          {t("Edit")} <code>src/App.tsx</code> {t("and save to reload.")}
+          <Trans i18nKey="intro">
+            Edit <code>src/App.tsx</code> and save to reload.
+          </Trans>
         </p>
         <a
           className="App-link"
@@ -21,10 +25,18 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          {t("Learn React")}
+          {t('learn')}
         </a>
+        <div className="langBtnsDiv">
+          <button className="langBtn" onClick={() => changeLang('en')}>
+            {t('buttons.en')}
+          </button>
+          <button className="langBtn" onClick={() => changeLang('es')}>
+            {t('buttons.es')}
+          </button>
+        </div>
       </header>
-    </div>
+    </div >
   );
 }
 

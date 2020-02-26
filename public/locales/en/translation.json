@@ -1,0 +1,8 @@
+{
+  "intro": "Edit <1>src/App.tsx</1> and save to reload.",
+  "learn": "Learn React",
+  "buttons": {
+    "en": "English",
+    "es": "Spanish"
+  }
+}
